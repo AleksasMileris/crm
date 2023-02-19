@@ -1,0 +1,20 @@
+{
+    "name": "alek/crm",
+    "type": "project",
+    "authors": [
+        {
+            "name": "AleksasMileris",
+            "email": "Aleksas.Mileris@gmail.com"
+        }
+    ],
+    "require": {
+        "eftec/bladeone": "^4.8"
+    },
+    "autoload": {
+       "psr-4": {
+           "models\\": "models/",
+           "helper\\": "helper/"
+
+       }
+    }
+}

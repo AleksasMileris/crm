@@ -1,0 +1,59 @@
+<?php ?>
+<?php $_shouldextend[1]=1; ?>
+
+ <?php $this->startSection("content"); ?>
+
+ <div class="col-md-12 mt-5"><a href="newCustomer.php" class="btn btn-success float-end">Add New Customer</a></div>
+ <div class="col-md-12 ">
+
+ <div class="card font-monospace text-center">
+ <div class="card-header bg-primary">
+ <h3 class="fw-bold">Customers</h3>
+
+ </div>
+ <div class="card-body">
+
+ <table class="table table-sm table-striped">
+ <thead>
+ <tr>
+ <th>Name</th>
+ <th>Surname</th>
+ <th>Phone</th>
+ <th>Email</th>
+ <th>Address</th>
+ <th>Position</th>
+ <th>Company Id</th>
+ <th>Conversations</th>
+ <th></th>
+ <th></th>
+
+ </tr>
+ </thead>
+ <tbody >
+ <?php $__currentLoopData = \models\Customer::all(); $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $customer): $loop = $this->incrementLoopIndices();  ?>
+
+ <tr>
+ <td><?php echo \htmlentities($customer->getName()??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td><?php echo \htmlentities($customer->getSurname()??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td><?php echo \htmlentities($customer->getPhone()??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td><?php echo \htmlentities($customer->getEmail()??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td><?php echo \htmlentities($customer->getAdress()??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td><?php echo \htmlentities($customer->getPosition()??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td><?php echo \htmlentities($customer->getCompanyId()??'', ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td><a class="btn btn-warning" href="conversations.php?id=<?php echo \htmlentities($customer->getId()??'', ENT_QUOTES, 'UTF-8', false); ?>">Conversations</a></td>
+
+
+ <td><a class="btn btn-info" href="update.php?id=<?php echo \htmlentities($customer->getId()??'', ENT_QUOTES, 'UTF-8', false); ?>">Update</a></td>
+ <td><a class="btn btn-danger" href="index.php?delete=<?php echo \htmlentities($customer->getId()??'', ENT_QUOTES, 'UTF-8', false); ?>">Delete</a></td>
+ </tr>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </tbody>
+ </table>
+ </div>
+
+ </div>
+ </div>
+ <?php $this->stopSection(); ?>
+
+<?php if (isset($_shouldextend[1])) { echo $this->runChild("layouts.main"); } ?>
