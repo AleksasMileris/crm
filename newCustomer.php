@@ -8,7 +8,7 @@
 // vietoi 4 require_once 1 vendor failas naudojant composer
 
 
-require_once "vendor/autoload.php";
+require_once "config.php";
 if(isset($_POST['save'])){
     $customer=new Customer($_POST['name'],$_POST['surname'],$_POST['phone'],$_POST['email'],$_POST['address'],$_POST['position'],$_POST['company_id']);
     $customer->save();

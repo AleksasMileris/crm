@@ -13,7 +13,7 @@ use models\Customer;
 // vietoi 4 require_once 1 vendor failas naudojant composer
 
 
-require_once "vendor/autoload.php";
+require_once "config.php";
 
 
 

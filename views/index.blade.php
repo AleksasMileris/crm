@@ -2,6 +2,10 @@
 @extends("layouts.main")
 
                     @section("content")
+                        <div class="d-flex justify-content-between">
+                            <p class="user mt-3">Welcome back: {{ $_SESSION['user']['email'] }} </p>
+
+                        </div>
 
                         <div class="col-md-12 mt-5"><a href="newCustomer.php" class="btn btn-success float-end">Add New Customer</a></div>
                 <div class="col-md-12 ">

@@ -11,7 +11,7 @@ use models\Customer;
 // vietoi 4 require_once 1 vendor failas naudojant composer
 
 
-require_once "vendor/autoload.php";
+require_once "config.php";
 
 $id=$_GET['id'];
 $customer=Customer::get($id);
@@ -41,7 +41,7 @@ if (isset($_POST['save'])) {
         <div class="col-md-12 mt-5">
             <div class="card font-monospace">
                 <div class="card-header bg-primary">
-                    New Customer
+                    Update
                 </div>
                 <div class="card-body">
                     <form method="post">

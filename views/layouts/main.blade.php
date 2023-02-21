@@ -12,8 +12,40 @@
 
 </head>
 <body>
+
+
+    @if(\helper\Admin::isLogin())
+
+        <div class="container">
+            <div class="col-md-12 ">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    @foreach(\helper\Admin::getAdmin()->getNav() as $name =>$link)
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ $link }}">{{$name}}</a>
+                            </li>
+                            @endforeach
+
+                        </ul>
+                </div>
+                <a class="btn btn-danger float-end" href="login.php?logout=true">Log Out</a>
+            </div>
+        </nav>
+
+
+
+            </div>
+        </div>
+@endif
         <div class="container">
             <div class="row">
+
 
 
                 @yield("content")
